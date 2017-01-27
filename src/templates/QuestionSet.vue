@@ -1,13 +1,32 @@
 <template>
-
+    <div>
+        <Question :question="question"></Question>
+        <!--<button @click="testing2">Question Set</button>-->
+    </div>
+    
 </template>
 
 <script>
-    import questions from './data/questions';
+    // import { questions } from '../data/questions';
+    import Question from './Question.vue';
 
-    function randomQuestion(questions) {
-        if(!questions.length) return;
-        let randomlySelectedIndex = Math.floor(Math.random() * questions.length);
-        return questions[randomlySelectedIndex];
+    export default {
+        props:{
+            questions: Array,
+            question: Object
+        },
+        components: {
+            Question: Question
+        },
+        methods:{
+            testing2() {
+                console.log(this.questions)
+            },
+           
+        }
     }
+
+    
+    // let question = randomQuestion(this.questions);
+
 </script>

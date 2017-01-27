@@ -8,8 +8,15 @@
 </template>
 
 <script>
+// import { questions } from '../data/questions.js';
+
     export default{
-        props: ['questions'],
+        props:{
+            questions: Array,
+            default() {
+                return ['blah', 'blah'];
+            }
+            },
         methods:{
             startPlaying() {
                 console.log(this.questions);
@@ -19,6 +26,12 @@
 </script>
 
 <style scoped>
+    .welcome{
+        border: 2px solid red;
+        align-self: center;
+        justify-content: center;
+        
+    }
     .start_playing{
         font-family: schoolBell;
         background-color: #e1f5c4;
@@ -31,7 +44,11 @@
         font-size: 1.5rem;
         padding: 10px;
         width: 160px;
-        margin: 40px auto;
+        margin: auto;
         display: block;
+    }
+    .start_playing:hover{
+        box-shadow: 0 3px 1px 1px rgba(0,0,0,0.2);
+        background-color:#e1f5c4;
     }
 </style>

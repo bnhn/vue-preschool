@@ -1,14 +1,13 @@
 import Vue from 'vue';
 import App from './App.vue';
-import { questions } from './data/questions.js';
 import Welcome from './templates/Welcome.vue';
+import QuestionSet from './templates/questionSet.vue';
 
-Vue.component('tpl-welcome', Welcome);
+Vue.component('Welcome', Welcome);
+Vue.component('Questions', QuestionSet)
 
 new Vue({
   el: '#app',
-  data:{
-    questions
-  },
+
   render: h => h(App)
 })
