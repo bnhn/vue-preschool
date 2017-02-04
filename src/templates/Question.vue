@@ -1,28 +1,82 @@
 <template>
-    <div>
+    <div class="question_set">
         <p>{{question.question}}</p>
-        <img :src="question.resource.url" alt="Question Image">
+        <img class="question_image" :src="question.resource.url" alt="Question Image">
         <ul>
-            <li class="question-options-item" v-for="option in question.options">{{ option }}</li>
+            <li class="question-options-item"
+                 
+                v-for="option in question.options"
+                @click="checkAnswer(option, question.answer, question.id)">
+                {{ option }}
+            </li>
         </ul>
-        <!--<button @click="testing">Question</button>-->
     </div>
 </template>
 
 <script>
+    import { randomQuestion } from '../methods.js'
     export default{
+        data() {
+            return {
+                question: randomQuestion(this.questions),
+                answeredQuestionID: 0,
+                tries: 0,
+                
+            }
+        },
         props:{
-            question: Object
+            questions: Array
         },
         methods:{
-            testing() {
-                console.log(this.question);
+            checkAnswer(option, answer, questionID) {
+                this.tries++;
+                if(option === answer) {
+                    
+                    this.answeredQuestionID = questionID;
+                    console.log('Correct', option, this.totalTriesAllowed);
+                    this.question = randomQuestion(this.questions);
+                }
+                else if(this.tries <= this.totalTriesAllowed) {
+                    console.log('oops, try again', this.totalTriesAllowed)
+                    
+                }
+                else {
+                    console.log('Sorry, moving on');
+                    this.question = randomQuestion(this.questions);
+                }
+                
             }
-        }
+        },
+        computed: {
+            totalTriesAllowed() {
+                return Math.floor(this.question.options.length / 2);
+            },
+            
+        },
     }
+   
 </script>
 
 <style scoped>
+    .question_set {
+        display: flex;
+        /*justify-content: center;*/
+        flex-direction: column;
+        border: 2px solid crimson;
+        
+    }
+    .question_image {
+        border: 2px solid crimson;
+        width: auto;
+        height: 300px;
+        align-self: center;
+    }
+    p, ul {
+        border: 2px solid crimson;
+    }
+    ul {
+        align-self: center;
+    }
     .question-options-item {
         font-family: schoolBell;
         background-color: #e1f5c4;
@@ -42,4 +96,8 @@
         box-shadow: 0 3px 1px 1px rgba(0,0,0,0.2);
         background-color:#e1f5c4;
     }
+    .question__option-item-answer {
+    box-shadow: 0 3px 1px 1px rgba(0,0,0,0.2);
+    background-color: #79cc00;
+}
 </style>

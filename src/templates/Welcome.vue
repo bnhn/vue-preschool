@@ -1,25 +1,25 @@
 <template>
     <div class = "welcome">
         <p class ="welcome-message">
-            Welcome to Vue Pre-School
+            Pre-School
         </p>
     <button class = "start_playing" @click="startPlaying">play!</button>
     </div>
 </template>
 
 <script>
-// import { questions } from '../data/questions.js';
 
     export default{
-        props:{
-            questions: Array,
-            default() {
-                return ['blah', 'blah'];
+        data() {
+            return {
+                playing: 0
             }
-            },
+        },
         methods:{
             startPlaying() {
-                console.log(this.questions);
+                this.playing = 1;
+                this.$emit('startPlaying');
+                console.log(this.playing);
             }
         }
     }
@@ -28,8 +28,8 @@
 <style scoped>
     .welcome{
         border: 2px solid red;
-        align-self: center;
-        justify-content: center;
+        display: flex;
+        flex-direction: column;
         
     }
     .start_playing{
@@ -44,7 +44,8 @@
         font-size: 1.5rem;
         padding: 10px;
         width: 160px;
-        margin: auto;
+        align-self: center;
+        /*margin: auto;*/
         display: block;
     }
     .start_playing:hover{

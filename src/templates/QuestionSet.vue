@@ -1,7 +1,7 @@
 <template>
     <div>
         <Question :question="question"></Question>
-        <!--<button @click="testing2">Question Set</button>-->
+        <button @click="testing2">Question Set</button>
     </div>
     
 </template>
@@ -11,6 +11,11 @@
     import Question from './Question.vue';
 
     export default {
+        data() {
+            return {
+                testdata: 2
+            }
+        },
         props:{
             questions: Array,
             question: Object
@@ -20,7 +25,7 @@
         },
         methods:{
             testing2() {
-                console.log(this.questions)
+                console.log(this)
             },
            
         }

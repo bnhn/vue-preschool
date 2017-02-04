@@ -1,37 +1,44 @@
 <template>
   <div class="container">
-    <Welcome :questions="questions"></Welcome>
-    <!--<Questions 
+    <Welcome
+      v-if="!playing"
+      v-on:startPlaying="play"
+    ></Welcome>
+    <Question v-else="playing" 
       :questions="questions"
-      :question="question"
-    ></Questions>-->
+    ></Question>
   </div>
 </template>
 
 <script>
 import { questions } from './data/questions.js';
+import Question from './templates/Question.vue';
+import Welcome from './templates/Welcome.vue';
 
 export default {
   name: 'app',
   data () {
     return {
       questions: questions,
-      question: randomQuestion(questions)
+      playing: 0,
+      // answered: []
       }
+    },
+    methods: {
+      play() {
+        this.playing = true;
+        console.log("play", this.playing);
+      }
+    },
+    components: {
+      Question: Question,
+      Welcome: Welcome
     }
   }
-
-  function randomQuestion(questions) {
-    if(questions.length){
-      let randomIndex = Math.floor(Math.random() * questions.length);
-      let question = questions[randomIndex];
-      return question;
-    }
-    return;
-  }
-
 </script>
 
 <style>
-
+  .container {
+    height: 100vh;
+  }
 </style>
