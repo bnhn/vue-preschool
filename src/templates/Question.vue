@@ -34,14 +34,16 @@
                     this.unansweredQuestions = filterQuestions(this.unansweredQuestions, questionID)
                     this.question = randomQuestion(this.unansweredQuestions);
                     console.log('Correct', option, this.unansweredQuestions);
+                    this.tries = 0;
                 }
-                else if(this.tries <= this.totalTriesAllowed) {
-                    console.log('oops, try again', this.totalTriesAllowed)
+                else if(this.tries < this.totalTriesAllowed) {
+                    console.log('oops, try again, totalTriesAllowed:', this.totalTriesAllowed)
                     
                 }
                 else {
                     console.log('Sorry, moving on');
-                    this.question = randomQuestion(this.questions);
+                    this.question = randomQuestion(this.unansweredQuestions);
+                    this.tries = 0;
                 }
                 
             }

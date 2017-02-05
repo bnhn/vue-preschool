@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <Welcome
+    <appWelcome
       v-if="!playing"
       v-on:startPlaying="play"
-    ></Welcome>
-    <Question v-else="playing" 
+    ></appWelcome>
+    <appQuestion v-else="playing" 
       :questions="questions"
-    ></Question>
+    ></appQuestion>
   </div>
 </template>
 
@@ -31,8 +31,8 @@ export default {
       }
     },
     components: {
-      Question: Question,
-      Welcome: Welcome
+      appQuestion: Question,
+      appWelcome: Welcome
     }
   }
 </script>
