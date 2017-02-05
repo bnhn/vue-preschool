@@ -35,7 +35,7 @@
     .start_playing{
         font-family: schoolBell;
         background-color: #e1f5c4;
-        border: 5px solid #add86d;
+        border: 3px solid #add86d;
         border-radius: 30%/90%;
         color: #000;
         text-align: center;

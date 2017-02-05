@@ -3,11 +3,11 @@
   "description": "A Vue.js version for Dev:Congress's preschool project",
   "version": "0.0.1",
   "author": "Rayy Benhin <bbenhin@gmail.com>",
-  "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
+  "license": "MIT",
   "dependencies": {
     "vue": "^2.1.0"
   },
