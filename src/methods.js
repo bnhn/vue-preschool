@@ -6,3 +6,9 @@ export function randomQuestion(questions) {
     }
     return;
   }
+
+  export function filterQuestions(questions, questionID) {
+    return questions.filter((question) =>{
+        return question.id !== questionID;
+      });
+  }

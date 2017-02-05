@@ -14,12 +14,12 @@
 </template>
 
 <script>
-    import { randomQuestion } from '../methods.js'
+    import { randomQuestion, filterQuestions } from '../methods.js'
     export default{
         data() {
             return {
+                unansweredQuestions: this.questions,
                 question: randomQuestion(this.questions),
-                answeredQuestionID: 0,
                 tries: 0,
                 
             }
@@ -31,10 +31,9 @@
             checkAnswer(option, answer, questionID) {
                 this.tries++;
                 if(option === answer) {
-                    
-                    this.answeredQuestionID = questionID;
-                    console.log('Correct', option, this.totalTriesAllowed);
-                    this.question = randomQuestion(this.questions);
+                    this.unansweredQuestions = filterQuestions(this.unansweredQuestions, questionID)
+                    this.question = randomQuestion(this.unansweredQuestions);
+                    console.log('Correct', option, this.unansweredQuestions);
                 }
                 else if(this.tries <= this.totalTriesAllowed) {
                     console.log('oops, try again', this.totalTriesAllowed)
