@@ -14,5 +14,4 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-Credits to [msbrime](https://github.com/msbrime/), [silentworks](https://github.com/silentworks/), and [David](https://github.com/oddoye-david/) for their [React](https://github.com/msbrime/react-preschool), [Svelte](https://github.com/silentworks/svelte-preschool), and [JAMstack](https://github.com/oddoye-david/static-preschoo) versions
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Credits to [msbrime](https://github.com/msbrime/), [silentworks](https://github.com/silentworks/), and [David](https://github.com/oddoye-david/) for their [React](https://github.com/msbrime/react-preschool), [Svelte](https://github.com/silentworks/svelte-preschool), and [JAMstack](https://github.com/oddoye-david/static-preschoo) versions respectively.
