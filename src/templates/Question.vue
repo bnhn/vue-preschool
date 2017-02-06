@@ -2,7 +2,6 @@
     <div v-if="question" class="question_set">
         <p>{{question.question}}</p>
             <img class="question_image"
-                 :style="{animation: animation}"
                  :src="question.resource.url" alt="Question Image">
         <ul>
             <li class="question-options-item"
@@ -24,20 +23,11 @@
     import { randomQuestion, filterQuestions } from '../methods.js';
     import Feedback from './Feedback.vue';
 
-    let animations = [
-        'zoomIn','flipInY',
-        'fadeIn','bounceIn',
-        'flipInX','lightSpeedIn'
-    ];
-
-    let randomAnimation  = () => animations[Math.floor(Math.random() * animations.length)];
-
     export default{
         data() {
             return {
                 unansweredQuestions: this.questions,
                 question: randomQuestion(this.questions),
-                animation: randomAnimation(),
                 tries: 0,
                 score: 0,
                 gameOver: 0,
@@ -55,9 +45,8 @@
                     this.setScore();
                     this.nextQuestion(questionID);
                 }
-                else if(this.tries > this.totalTriesAllowed) {
+                else if(this.tries < this.totalTriesAllowed) {
                     console.log('oops, try again, totalTriesAllowed:', this.totalTriesAllowed)
-                    
                 }
                 else {
                     console.log('Sorry, moving on');
