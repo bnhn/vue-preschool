@@ -1,7 +1,9 @@
 <template>
     <div v-if="question" class="question_set">
         <p>{{question.question}}</p>
-        <img class="question_image" :src="question.resource.url" alt="Question Image"><br>
+            <img class="question_image"
+                 :style="{animation: animation}"
+                 :src="question.resource.url" alt="Question Image">
         <ul>
             <li class="question-options-item"
                  
@@ -21,11 +23,21 @@
 <script>
     import { randomQuestion, filterQuestions } from '../methods.js';
     import Feedback from './Feedback.vue';
+
+    let animations = [
+        'zoomIn','flipInY',
+        'fadeIn','bounceIn',
+        'flipInX','lightSpeedIn'
+    ];
+
+    let randomAnimation  = () => animations[Math.floor(Math.random() * animations.length)];
+
     export default{
         data() {
             return {
                 unansweredQuestions: this.questions,
                 question: randomQuestion(this.questions),
+                animation: randomAnimation(),
                 tries: 0,
                 score: 0,
                 gameOver: 0,
@@ -94,11 +106,11 @@
         justify-content: center;
         flex-flow: row wrap;
         text-align: center;
-        border: 2px solid darkorchid;
+        /*border: 2px solid darkorchid;*/
         
     }
     .question_image {
-        border: 2px solid crimson;
+        /*border: 2px solid crimson;*/
         width: auto;
         height: 300px;
     }
@@ -106,9 +118,9 @@
         width: 100%;
         margin: 0px;
     }
-    p, ul {
+    /*p, ul {
         border: 2px solid crimson;
-    }
+    }*/
     ul {
         display: flex;
         flex-flow: row wrap;

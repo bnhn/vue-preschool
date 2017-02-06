@@ -27,7 +27,7 @@
 
 <style scoped>
     .welcome{
-        border: 2px solid red;
+        /*border: 2px solid red;*/
         display: flex;
         flex-flow: row wrap;
         justify-content: center

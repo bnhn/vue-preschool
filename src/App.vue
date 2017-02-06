@@ -54,7 +54,6 @@ export default {
         padding: 10px;
         width: 160px;
         align-self: center;
-        /*margin: auto;*/
         display: block;
     }
     .start_playing:hover{
