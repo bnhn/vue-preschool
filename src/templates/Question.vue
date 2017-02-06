@@ -1,7 +1,7 @@
 <template>
     <div v-if="question" class="question_set">
         <p>{{question.question}}</p>
-        <img class="question_image" :src="question.resource.url" alt="Question Image">
+        <img class="question_image" :src="question.resource.url" alt="Question Image"><br>
         <ul>
             <li class="question-options-item"
                  
@@ -91,43 +91,51 @@
 <style scoped>
     .question_set {
         display: flex;
-        /*justify-content: center;*/
-        flex-direction: column;
-        border: 2px solid crimson;
+        justify-content: center;
+        flex-flow: row wrap;
+        text-align: center;
+        border: 2px solid darkorchid;
         
     }
     .question_image {
         border: 2px solid crimson;
         width: auto;
         height: 300px;
-        align-self: center;
+    }
+    p {
+        width: 100%;
+        margin: 0px;
     }
     p, ul {
         border: 2px solid crimson;
     }
     ul {
-        align-self: center;
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        justify-content: center;
     }
     .question-options-item {
         font-family: schoolBell;
-        background-color: #e1f5c4;
+        background-color: #edf5c4;
         border: 3px solid #add86d;
         border-radius: 30%/90%;
         color: #000;
-        text-align: center;
         text-transform: capitalize;
         cursor: pointer;
         font-size: 1.5rem;
         padding: 10px;
         width: 160px;
-        /*margin: 40px auto;*/
+        margin: auto;
         display: block;
+        transition: box-shadow 0.5s,background-color 0.5s;
     }
     .question-options-item:hover {
         box-shadow: 0 3px 1px 1px rgba(0,0,0,0.2);
         background-color:#e1f5c4;
     }
     .question__option-item-answer {
+    animation:pulse 1s infinite;
     box-shadow: 0 3px 1px 1px rgba(0,0,0,0.2);
     background-color: #79cc00;
 }

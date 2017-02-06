@@ -21,7 +21,6 @@ export default {
     return {
       questions: questions,
       playing: 0,
-      // answered: []
       }
     },
     methods: {

@@ -18,6 +18,16 @@
     }
 </script>
 
-<style>
-    
+<style scoped>
+    div {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        border: 1px solid mediumorchid;
+    }
+    p {
+        width: 100%;
+        text-align: center;
+        border: 1px solid firebrick;
+    }
 </style>
