@@ -12,8 +12,8 @@
 
 <script>
 import { questions } from './data/questions.js';
-import Question from './templates/Question.vue';
-import Welcome from './templates/Welcome.vue';
+import Question from './components/Question.vue';
+import Welcome from './components/Welcome.vue';
 
 export default {
   name: 'app',

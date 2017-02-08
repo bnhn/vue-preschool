@@ -127,9 +127,12 @@
         font-size: 1.5rem;
         padding: 10px;
         width: 160px;
-        margin: auto;
+        /*margin: auto;*/
         display: block;
         transition: box-shadow 0.5s,background-color 0.5s;
+    }
+    .question-options-item:nth-child(even) {
+        margin-left: 32px;
     }
     .question-options-item:hover {
         box-shadow: 0 3px 1px 1px rgba(0,0,0,0.2);
