@@ -1,7 +1,11 @@
 <template>
     <div v-if="question" class="question_set">
         <p>{{question.question}}</p>
-        <QuestionImage :imageUrl="question.resource.url"></QuestionImage>
+        <QuestionImage 
+            :imageUrl="question.resource.url"
+            :playing="playing"
+            >
+            </QuestionImage>
             <!--<img class="question_image"
                  :src="question.resource.url" alt="Question Image">-->
         <ul>
@@ -17,6 +21,7 @@
         v-else
         v-on:resetGame="reset"
         :score="score"
+        :show="true"
     ></Feedback>
 </template>
 
@@ -32,12 +37,11 @@
                 question: randomQuestion(this.questions),
                 tries: 0,
                 score: 0,
-                gameOver: 0,
-                
             }
         },
         props:{
-            questions: Array
+            questions: Array,
+            playing: Boolean,
         },
         methods:{
             checkAnswer(option, answer, questionID) {
@@ -75,8 +79,7 @@
                 this.question = randomQuestion(this.questions);
                 this.tries = 0;
                 this.score = 0;
-                this.gameOver = 0;
-            }
+            },
         },
         computed: {
             totalTriesAllowed() {

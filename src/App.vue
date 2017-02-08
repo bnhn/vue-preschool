@@ -6,6 +6,7 @@
     ></Welcome>
     <Question v-else
       :questions="questions"
+      :playing="playing"
     ></Question>
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {
   data () {
     return {
       questions: questions,
-      playing: 0,
+      playing: false,
       }
     },
     methods: {
@@ -30,8 +31,8 @@ export default {
       }
     },
     components: {
-      Question: Question,
-      Welcome: Welcome
+      Question,
+      Welcome
     }
   }
 </script>
