@@ -1,8 +1,9 @@
 <template>
     <div v-if="question" class="question_set">
         <p>{{question.question}}</p>
-            <img class="question_image"
-                 :src="question.resource.url" alt="Question Image">
+        <QuestionImage :imageUrl="question.resource.url"></QuestionImage>
+            <!--<img class="question_image"
+                 :src="question.resource.url" alt="Question Image">-->
         <ul>
             <li class="question-options-item"
                  
@@ -21,6 +22,7 @@
 
 <script>
     import { randomQuestion, filterQuestions } from '../methods.js';
+    import QuestionImage from './QuestionImage.vue'
     import Feedback from './Feedback.vue';
 
     export default{
@@ -83,7 +85,8 @@
             
         },
         components: {
-            Feedback: Feedback
+            QuestionImage,
+            Feedback,
         }
     }
    
